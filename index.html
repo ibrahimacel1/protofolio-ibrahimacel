@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raden Ibrahim Acel | STEM Engineer, AI Specialist & Entrepreneur</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 800: '#1e3a8a', 900: '#0f172a' },
+                        gold: { 500: '#f59e0b', 600: '#d97706' },
+                        light: '#f8fafc',
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .loader { border: 3px solid #f3f3f3; border-top: 3px solid #0f172a; border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        ::selection { background-color: #d97706; color: #ffffff; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased leading-relaxed bg-light">
+
+    <!-- Navigation (Dark Background) -->
+    <nav class="fixed w-full z-50 bg-navy-900/90 backdrop-blur-md shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <a href="#home" class="text-xl font-bold text-white tracking-tight">R. Ibrahim Acel<span class="text-gold-500">.</span></a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#about" class="text-sm font-medium text-slate-300 hover:text-white transition-colors" data-lang="nav-about">Tentang</a>
+                <a href="#experience" class="text-sm font-medium text-slate-300 hover:text-white transition-colors" data-lang="nav-experience">Pengalaman</a>
+                <a href="#projects" class="text-sm font-medium text-slate-300 hover:text-white transition-colors" data-lang="nav-projects">Proyek & Bisnis</a>
+                <a href="#skills" class="text-sm font-medium text-slate-300 hover:text-white transition-colors" data-lang="nav-skills">Keahlian</a>
+                <a href="#contact" class="text-sm font-medium text-white px-4 py-2 border-2 border-white rounded-full hover:bg-white hover:text-navy-900 transition-all" data-lang="nav-contact">Kontak</a>
+                
+                <!-- Language Switcher -->
+                <button id="lang-switch-btn" class="ml-4 flex items-center gap-2 text-sm font-semibold text-navy-900 bg-white hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-colors border border-slate-200">
+                    <i class="fas fa-globe text-gold-500"></i>
+                    <span id="current-lang-text">ID</span>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Button & Mobile Lang Switch -->
+            <div class="md:hidden flex items-center gap-4">
+                <button id="mobile-lang-switch-btn" class="flex items-center gap-1 text-sm font-semibold text-navy-900 bg-white hover:bg-slate-200 px-2 py-1 rounded-md transition-colors border border-slate-200">
+                    <i class="fas fa-globe text-gold-500 text-xs"></i>
+                    <span id="mobile-current-lang-text">ID</span>
+                </button>
+                <button id="mobile-menu-button" class="text-white hover:text-gold-500 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-900 border-t border-slate-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-md" data-lang="nav-about">Tentang</a>
+                <a href="#experience" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-md" data-lang="nav-experience">Pengalaman</a>
+                <a href="#projects" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-md" data-lang="nav-projects">Proyek & Bisnis</a>
+                <a href="#skills" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-md" data-lang="nav-skills">Keahlian</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-white hover:text-gold-500 hover:bg-slate-800 rounded-md" data-lang="nav-contact">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- New Hero Section (Navy & Gold Theme, Photo Right) -->
+    <header id="home" class="relative pt-32 pb-20 lg:pt-0 lg:pb-0 overflow-hidden bg-navy-900 flex items-center min-h-screen">
+        
+        <!-- Architectural Line Pattern (Subtle Background) -->
+        <div class="absolute inset-0 opacity-[0.03] z-0 pointer-events-none">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+                <!-- Additional Abstract Lines -->
+                <path d="M0 200 L1000 200 M200 0 L200 800 M0 600 L1000 600" stroke="white" stroke-width="0.5" fill="none"/>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="flex flex-col-reverse lg:flex-row items-center lg:items-stretch lg:justify-between h-full pt-10 lg:pt-32">
+                
+                <!-- Left: Text Content -->
+                <div class="lg:w-1/2 flex flex-col justify-center pb-16 lg:pb-32 pt-10 lg:pt-0 z-20">
+                    <p class="text-gold-500 font-bold tracking-widest uppercase text-sm mb-4" data-lang="hero-subtitle">
+                        STEM Engineer & Entrepreneur
+                    </p>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6 font-serif tracking-tight" data-lang="hero-title">
+                        Membangun Masa Depan Melalui AEC, AI Data, & Bisnis.
+                    </h1>
+                    <p class="text-lg text-slate-300 mb-10 max-w-xl leading-relaxed" data-lang="hero-desc">
+                        Saya <strong>Raden Ibrahim Acel Suryaningwibowo</strong>. Berpengalaman 5+ tahun sebagai AEC & AI Data Specialist, serta wirausahawan yang membangun bisnis F&B yang profitable.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-5">
+                        <a href="#projects" class="inline-flex justify-center items-center px-8 py-4 text-sm font-bold uppercase tracking-wider rounded-md text-navy-900 bg-gold-500 hover:bg-gold-400 transition-colors shadow-[0_0_15px_rgba(245,158,11,0.3)]" data-lang="hero-btn">
+                            View My Portfolio
+                        </a>
+                        <a href="#contact" class="inline-flex justify-center items-center px-8 py-4 text-sm font-bold uppercase tracking-wider rounded-md text-white border-2 border-white hover:bg-white hover:text-navy-900 transition-colors">
+                            Let's Connect
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Big Photo Area (Inspired by reference) -->
+                <div class="lg:w-1/2 relative lg:absolute lg:right-0 lg:bottom-0 lg:top-0 h-[50vh] lg:h-auto flex justify-center items-end lg:items-center w-full z-10 lg:pl-10">
+                    <!-- Subtle Glow Behind Photo -->
+                    <div class="absolute lg:top-1/2 lg:-translate-y-1/2 right-0 w-[80%] h-[80%] bg-gold-500/10 rounded-full blur-[100px]"></div>
+                    
+                    <!-- 
+                        Ganti src dengan nama foto asli Anda yang sudah dihilangkan background-nya (PNG transparan)
+                        untuk hasil terbaik. Sementara saya gunakan gambar referensi Anda.
+                    -->
+                    <img src="image_245d05.jpg" alt="Raden Ibrahim Portrait" class="relative z-20 h-full w-full object-cover lg:object-contain object-bottom lg:object-right-bottom" onerror="this.src='foto acel 1.jpg'; this.classList.remove('object-contain'); this.classList.add('object-cover', 'rounded-2xl', 'shadow-2xl', 'my-10')">
+                    
+                    <!-- Decorative Arrow/Scroll Indicator -->
+                    <div class="absolute bottom-10 right-10 z-30 hidden lg:flex flex-col items-center animate-bounce">
+                        <div class="w-px h-16 bg-gold-500/50"></div>
+                        <i class="fas fa-chevron-down text-gold-500 mt-2"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+                <div class="lg:col-span-5 mb-10 lg:mb-0 relative">
+                    <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-slate-100 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-navy-900/20 to-transparent z-10"></div>
+                        <img src="foto acel 1.jpg" alt="Raden Ibrahim" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-gold-500 rounded-2xl -z-10 opacity-50"></div>
+                </div>
+                <div class="lg:col-span-7">
+                    <h2 class="text-sm font-bold text-gold-600 tracking-widest uppercase mb-2" data-lang="about-subtitle">Tentang Saya</h2>
+                    <h3 class="text-3xl font-bold text-navy-900 mb-6" data-lang="about-title">Memadukan Keahlian Teknis dengan Strategi Bisnis.</h3>
+                    <div class="text-slate-600 space-y-4 mb-8 leading-relaxed">
+                        <p data-lang="about-p1">
+                            AEC Subject Matter Expert & AI Data Specialist yang sedang menempuh studi Magister Manajemen Proyek. Menawarkan 5+ tahun pengalaman progresif yang menjembatani manajemen konstruksi fisik, operasi bisnis strategis, dan kecerdasan buatan. Rekam jejak terbukti sebagai Estimator dan QA untuk startup ConTech berbasis di AS, dengan spesialisasi dalam anotasi data multimodal (cetak biru 2D/3D di seluruh disiplin MEP dan Struktural) dan kurasi dataset.
+                        </p>
+                        <p data-lang="about-p2">
+                            Mahir dalam mengevaluasi output LLM, memvalidasi logika perataan penawaran dan estimasi biaya otomatis, mendorong OKR di seluruh perusahaan, dan menerapkan alur kerja QA yang ketat untuk mempertahankan akurasi estimasi dalam deviasi yang ketat ±5-10%. Siap memanfaatkan keahlian teknik lapangan yang mendalam dan ketajaman bisnis untuk mendorong inovasi produk dalam Teknologi Konstruksi global.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold text-gold-600 tracking-widest uppercase mb-2" data-lang="exp-subtitle">Jejak Karir</h2>
+                <h3 class="text-3xl font-bold text-navy-900" data-lang="exp-title">Pengalaman Profesional & Bisnis</h3>
+            </div>
+            
+            <!-- Mengubah Grid ke Layout Vertikal (Timeline style) agar teks tidak menumpuk -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Card BOON -->
+                <article class="bg-white rounded-2xl p-8 shadow-md border-t-4 border-navy-900 hover:shadow-xl transition-shadow">
+                    <span class="text-xs font-semibold text-slate-400 block mb-2" data-lang="exp-boon-date">Nov 2025 - Present (San Fransisco, Remote)</span>
+                    <h4 class="text-xl font-bold text-navy-900 mb-1">Estimator AI Trainer & QA</h4>
+                    <p class="text-sm font-medium text-gold-600 mb-4">BOON Technologies (Startup AI)</p>
+                    <ul class="text-sm text-slate-600 space-y-3 list-disc list-outside ml-4">
+                        <li data-lang="exp-boon-1"><strong>Data Annotation:</strong> Mengevaluasi & menganotasi denah desain 2D/3D (Arsitektur & MEP) untuk AI.</li>
+                        <li data-lang="exp-boon-2"><strong>Application QA:</strong> Bertindak sebagai *gatekeeper* utama, memverifikasi akurasi logika *bid leveling* dan estimasi biaya otomatis.</li>
+                        <li data-lang="exp-boon-3"><strong>Dataset Curation:</strong> Memproses data konstruksi tekstual & visual menjadi *dataset* LLM berkualitas tinggi.</li>
+                        <li data-lang="exp-boon-4"><strong>AI Optimization:</strong> Meningkatkan konsistensi estimasi model 15-25% dengan mempertahankan deviasi biaya dunia nyata yang ketat (±5-10%).</li>
+                    </ul>
+                </article>
+
+                <!-- Card Werkfore -->
+                <article class="bg-white rounded-2xl p-8 shadow-md border-t-4 border-gold-500 hover:shadow-xl transition-shadow">
+                    <span class="text-xs font-semibold text-slate-400 block mb-2" data-lang="exp-werk-date">Aug 2025 - Jan 2026 (Indonesia, Remote)</span>
+                    <h4 class="text-xl font-bold text-navy-900 mb-1">Business Development</h4>
+                    <p class="text-sm font-medium text-gold-600 mb-4">Werkfore Id (Startup Education)</p>
+                    <ul class="text-sm text-slate-600 space-y-3 list-disc list-outside ml-4">
+                        <li data-lang="exp-werk-1"><strong>Strategic Growth:</strong> Mengeksekusi strategi B2C yang efektif dengan menargetkan 1.000+ pengguna pada fase validasi awal produk.</li>
+                        <li data-lang="exp-werk-2"><strong>Business Frameworks:</strong> Mengintegrasikan OKR & KPI di 4 fungsi C-level, meningkatkan efisiensi operasional hingga ~30%.</li>
+                        <li data-lang="exp-werk-3"><strong>Partnerships:</strong> Mengamankan 5+ kemitraan kunci dengan institusi pendidikan untuk memperluas jangkauan pasar.</li>
+                    </ul>
+                </article>
+
+                <!-- Card HULU & Burjoempa Gabungan -->
+                <article class="bg-white rounded-2xl p-8 shadow-md border-t-4 border-purple-500 hover:shadow-xl transition-shadow">
+                    <span class="text-xs font-semibold text-slate-400 block mb-2" data-lang="exp-hulu-date">Feb 2021 - Dec 2025 (Semarang)</span>
+                    <h4 class="text-xl font-bold text-navy-900 mb-1">Business Owner & Co-Founder</h4>
+                    <p class="text-sm font-medium text-purple-600 mb-4">HULU Dimsum & Coffee | Burjoempa</p>
+                    <ul class="text-sm text-slate-600 space-y-3 list-disc list-outside ml-4">
+                        <li data-lang="exp-hulu-1"><strong>Strategic Planning:</strong> Mengembangkan visi bisnis, misi, dan strategi pertumbuhan untuk memaksimalkan profitabilitas di dua *brand* F&B.</li>
+                        <li data-lang="exp-hulu-2"><strong>Financial Management:</strong> Mengelola anggaran, memprediksi biaya, dan memastikan arus kas positif.</li>
+                        <li data-lang="exp-hulu-3"><strong>Operations & Staff:</strong> Supervisi operasional harian, rekrutmen/pelatihan staf, *inventory control*, dan riset menu produk.</li>
+                        <li data-lang="exp-hulu-4"><strong>Marketing:</strong> Menerapkan promosi & *social media marketing* untuk meningkatkan *brand awareness*.</li>
+                    </ul>
+                </article>
+                
+                <div class="space-y-8">
+                    <!-- Card RCA Studio -->
+                    <article class="bg-white rounded-2xl p-8 shadow-md border-l-4 border-navy-900 hover:shadow-xl transition-shadow">
+                        <span class="text-xs font-semibold text-slate-400 block mb-2" data-lang="exp-rca-date">Dec 2022 - Aug 2025 (Semarang)</span>
+                        <h4 class="text-lg font-bold text-navy-900 mb-1">Project Associate</h4>
+                        <p class="text-sm font-medium text-gold-600 mb-3">RCA STUDIO ARCHITECT</p>
+                        <ul class="text-sm text-slate-600 space-y-2 list-disc list-outside ml-4">
+                            <li data-lang="exp-rca-1"><strong>Design & Docs:</strong> Memproduksi rencana konsep, rendering, dan dokumen detail konstruksi (Revit, AutoCAD, SketchUp, Adobe CS).</li>
+                            <li data-lang="exp-rca-2"><strong>Coordination:</strong> Meriset dan mengkoordinasikan spesifikasi material & produk.</li>
+                        </ul>
+                    </article>
+
+                    <!-- Card CV Saka -->
+                    <article class="bg-white rounded-2xl p-8 shadow-md border-l-4 border-gold-500 hover:shadow-xl transition-shadow">
+                        <span class="text-xs font-semibold text-slate-400 block mb-2" data-lang="exp-saka-date">Sep 2022 - May 2025 (Semarang)</span>
+                        <h4 class="text-lg font-bold text-navy-900 mb-1">Assistant Project Manager</h4>
+                        <p class="text-sm font-medium text-gold-600 mb-3">CV SAKA LANGIT (General Contractor)</p>
+                        <ul class="text-sm text-slate-600 space-y-2 list-disc list-outside ml-4">
+                            <li data-lang="exp-saka-1"><strong>Risk Management:</strong> Memantau progres proyek, mengidentifikasi isu lapangan, dan mengeksekusi mitigasi risiko.</li>
+                            <li data-lang="exp-saka-2"><strong>Optimization:</strong> Berhasil memangkas keterlambatan jadwal konstruksi keseluruhan hingga 15%.</li>
+                        </ul>
+                    </article>
+
+                    <!-- Card CV MASA & KAYU MEBEL -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <article class="bg-white rounded-2xl p-6 shadow-md border-l-4 border-navy-900">
+                            <span class="text-[10px] font-semibold text-slate-400 block mb-1" data-lang="exp-masa-date">Apr - Jul 2022 (Surabaya)</span>
+                            <h4 class="text-sm font-bold text-navy-900 mb-1">Site Civil Engineer</h4>
+                            <p class="text-xs font-medium text-gold-600 mb-2">CV MASA</p>
+                            <p class="text-xs text-slate-600" data-lang="exp-masa-1">Supervisi pekerja lapangan & fasilitas proyek sesuai cetak biru teknik dan regulasi K3.</p>
+                        </article>
+                        
+                        <article class="bg-white rounded-2xl p-6 shadow-md border-l-4 border-gold-500">
+                            <span class="text-[10px] font-semibold text-slate-400 block mb-1" data-lang="exp-kmi-date">Jun - Sep 2021 (Semarang)</span>
+                            <h4 class="text-sm font-bold text-navy-900 mb-1">Drafter Project</h4>
+                            <p class="text-xs font-medium text-gold-600 mb-2">PT KAYU MEBEL INDONESIA</p>
+                            <p class="text-xs text-slate-600" data-lang="exp-kmi-1">Mengkreasikan gambar detail 2D & 3D, denah, elevasi, dan detail struktur (AutoCAD & Inventor).</p>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Highlight Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <h2 class="text-sm font-bold text-gold-600 tracking-widest uppercase mb-2" data-lang="proj-subtitle">Portofolio</h2>
+                <h3 class="text-3xl font-bold text-navy-900" data-lang="proj-title">Sorotan Proyek & Bisnis</h3>
+            </div>
+
+            <!-- BOON -->
+            <div class="bg-slate-900 rounded-3xl overflow-hidden shadow-2xl mb-16">
+                <div class="p-8 md:p-12 lg:flex items-start gap-12">
+                    <div class="lg:w-1/2 mb-8 lg:mb-0">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-bold uppercase mb-4 border border-blue-500/30">AI Data Specialist</div>
+                        <h4 class="text-3xl font-bold text-white mb-4">Multimodal Data Annotation & QA Lead</h4>
+                        <p class="text-slate-300 mb-6" data-lang="proj-boon-desc"><strong>BOON Technologies</strong> | Evaluasi dan anotasi data kompleks 2D/3D. Bertindak sebagai gatekeeper kualitas LLM Konstruksi.</p>
+                        <div class="space-y-4">
+                            <div class="bg-slate-800 rounded-xl p-4 border border-slate-700">
+                                <h5 class="text-white font-semibold mb-2">1. Multimodal Annotation Platform</h5>
+                                <img src="2026-08-23 (1).jpg" class="w-full h-auto rounded-lg shadow-inner mb-2 opacity-80" onerror="this.src='https://placehold.co/600x400?text=Foto'">
+                            </div>
+                            <div class="bg-slate-800 rounded-xl p-4 border border-slate-700">
+                                <h5 class="text-white font-semibold mb-2">2. Complex MEP Blueprint Logic</h5>
+                                <img src="Screenshot 2026-06-25 164409.jpg" class="w-full h-auto rounded-lg shadow-inner mb-2 opacity-80" onerror="this.src='https://placehold.co/600x400?text=Foto'">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 sticky top-24">
+                            <h5 class="text-white font-semibold mb-4">3. Automated Estimating & QA Validation</h5>
+                            <video autoplay loop muted playsinline class="w-full rounded-lg shadow-xl mb-4 bg-black"><source src="Boon _ Raden - Mech - 28_04_2026 - Google Chrome 2026-04-28 16-08-32.mp4" type="video/mp4"></video>
+                            <p class="text-slate-400 text-sm mb-4" data-lang="proj-boon-vid-desc">Memvalidasi Bid Leveling dan Estimasi Biaya (Deviasi ±5-10%).</p>
+                            <video autoplay loop muted playsinline class="w-full rounded-lg shadow-xl bg-black"><source src="Boon _ Raden - QA 3 - 10_01_25 - Electrical - Electrical Estimates - Google Chrome 2026-01-10 19-22-22.mp4" type="video/mp4"></video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- F&B -->
+            <div class="mb-16">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-pink-100 text-pink-700 font-bold uppercase tracking-wider mb-6 border border-pink-200">
+                    <i class="fas fa-store mr-2"></i> Entrepreneurship & F&B Management
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- HULU -->
+                    <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-xl">
+                        <h4 class="text-2xl font-bold text-navy-900 mb-2">HULU Dimsum & Coffee</h4>
+                        <p class="text-sm text-purple-600 font-medium mb-4" data-lang="proj-hulu-date">Co-Founder (Feb 2021 - Sep 2025)</p>
+                        <p class="text-slate-600 mb-6 text-sm" data-lang="proj-hulu-desc">Manajemen finansial, operasional, kepuasan pelanggan, staf, menu, & supplier.</p>
+                        <a href="https://www.instagram.com/huludimsum.smg" target="_blank" class="inline-flex items-center px-6 py-3 rounded-full text-white font-medium bg-gradient-to-r from-purple-500 to-pink-500 w-full justify-center" data-lang="proj-hulu-btn">Kunjungi @huludimsum.smg</a>
+                    </div>
+                    <!-- BURJOEMPA -->
+                    <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-xl">
+                        <h4 class="text-2xl font-bold text-navy-900 mb-2">Burjoempa by HULU</h4>
+                        <p class="text-sm text-pink-600 font-medium mb-4" data-lang="proj-burjo-date">Business Owner (Nov 2022 - Dec 2025)</p>
+                        <p class="text-slate-600 mb-6 text-sm" data-lang="proj-burjo-desc">Perencanaan Strategis (visi, profitabilitas), manajemen keuangan, promosi.</p>
+                        <a href="https://www.instagram.com/burjoempa" target="_blank" class="inline-flex items-center px-6 py-3 rounded-full text-white font-medium bg-gradient-to-r from-pink-500 to-orange-400 w-full justify-center" data-lang="proj-burjo-btn">Kunjungi @burjoempa</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RISK -->
+            <div class="bg-navy-900 rounded-3xl p-8 shadow-2xl relative mb-16 text-white">
+                <span class="px-3 py-1 bg-gold-500/20 text-gold-500 text-xs font-bold uppercase rounded-full mb-4 inline-block" data-lang="proj-risk-tag">Research Project</span>
+                <h4 class="text-3xl font-bold mb-4">Analysis Project Risk PT WIKA Gedung</h4>
+                <p class="text-slate-300" data-lang="proj-risk-desc">Proyek: <strong>Sky House Alam Sutera Phase 2, Tangerang</strong>.</p>
+            </div>
+            
+            <!-- GALERI -->
+            <div>
+                <h4 class="text-2xl font-bold text-navy-900 mb-8 border-b-2 border-gold-500 inline-block pb-2" data-lang="proj-gallery-title">Galeri Karya (Desain & Sipil)</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <img src="embung.jpg" class="w-full h-48 object-cover rounded-xl shadow" onerror="this.src='https://placehold.co/600x400?text=Embung'">
+                    <img src="civil3d.jpg" class="w-full h-48 object-cover rounded-xl shadow" onerror="this.src='https://placehold.co/600x400?text=Civil+3D'">
+                    <img src="coffeeshop-sketchup.jpg" class="w-full h-48 object-cover rounded-xl shadow" onerror="this.src='https://placehold.co/600x400?text=Coffeeshop'">
+                    <img src="fashion-outlet.jpg" class="w-full h-48 object-cover rounded-xl shadow" onerror="this.src='https://placehold.co/600x400?text=Outlet'">
+                    <img src="cafe-kedungmundu.jpg" class="w-full h-48 object-cover rounded-xl shadow" onerror="this.src='https://placehold.co/600x400?text=Cafe'">
+                    <img src="gerbang-undip.jpg" class="w-full h-48 object-cover rounded-xl shadow" onerror="this.src='https://placehold.co/600x400?text=Gerbang'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section LENGKAP -->
+    <section id="skills" class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-gold-600 tracking-widest uppercase mb-2" data-lang="skills-subtitle">Kompetensi Inti</h2>
+                <h3 class="text-3xl font-bold text-navy-900" data-lang="skills-title">Keahlian & Tools</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- AI Group -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <h4 class="text-xl font-bold text-navy-900 mb-4"><i class="fas fa-robot text-gold-500 mr-2"></i> AI & Data Engineering</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">LLM Training & Fine-tuning</span>
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">Multimodal Annotation (2D/3D)</span>
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">Domain Dataset Curation</span>
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">AI Hallucination Auditing</span>
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">Quality Assurance (QA)</span>
+                    </div>
+                </div>
+
+                <!-- AEC Group -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <h4 class="text-xl font-bold text-navy-900 mb-4"><i class="fas fa-hard-hat text-gold-500 mr-2"></i> AEC Domain Expertise</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-amber-50 px-4 py-2 rounded-full text-sm font-semibold border border-amber-100 text-amber-900">Project Management</span>
+                        <span class="bg-amber-50 px-4 py-2 rounded-full text-sm font-semibold border border-amber-100 text-amber-900">Cost Estimation & Bid Leveling</span>
+                        <span class="bg-amber-50 px-4 py-2 rounded-full text-sm font-semibold border border-amber-100 text-amber-900">MEP & Structural Blueprint Analysis</span>
+                        <span class="bg-amber-50 px-4 py-2 rounded-full text-sm font-semibold border border-amber-100 text-amber-900">Risk Mitigation</span>
+                        <span class="bg-amber-50 px-4 py-2 rounded-full text-sm font-semibold border border-amber-100 text-amber-900">On-site Execution</span>
+                    </div>
+                </div>
+
+                <!-- Business Group -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <h4 class="text-xl font-bold text-navy-900 mb-4"><i class="fas fa-chart-line text-gold-500 mr-2"></i> Business & Strategy</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-50 px-4 py-2 rounded-full text-sm font-semibold border border-slate-200 text-slate-700">B2B/B2C Growth Strategy</span>
+                        <span class="bg-slate-50 px-4 py-2 rounded-full text-sm font-semibold border border-slate-200 text-slate-700">OKR & KPI Implementation</span>
+                        <span class="bg-slate-50 px-4 py-2 rounded-full text-sm font-semibold border border-slate-200 text-slate-700">Cross-functional Leadership</span>
+                        <span class="bg-slate-50 px-4 py-2 rounded-full text-sm font-semibold border border-slate-200 text-slate-700">Strategic Partnerships</span>
+                        <span class="bg-slate-50 px-4 py-2 rounded-full text-sm font-semibold border border-slate-200 text-slate-700">Agile Workflow Management</span>
+                        <span class="bg-slate-50 px-4 py-2 rounded-full text-sm font-semibold border border-slate-200 text-slate-700">Marketing Content Strategy</span>
+                    </div>
+                </div>
+
+                <!-- Tools Group -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <h4 class="text-xl font-bold text-navy-900 mb-4"><i class="fas fa-laptop-code text-gold-500 mr-2"></i> Technical Tools</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">AutoCAD</span>
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">SketchUp</span>
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">Revit</span>
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">AutoDesk Inventor</span>
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">Adobe Creative</span>
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">MS Office (Excel, PPT, Word)</span>
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">Linear</span>
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">GitHub</span>
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">Slack</span>
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">Notion</span>
+                        <span class="bg-blue-50 px-4 py-2 rounded-full text-sm font-semibold border border-blue-100">Canva</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section FIX BUTTON -->
+    <section id="contact" class="py-20 bg-navy-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-sm font-bold text-gold-500 tracking-widest uppercase mb-4" data-lang="contact-subtitle">Mari Berkolaborasi</h2>
+                    <p class="text-slate-300 mb-10 max-w-lg leading-relaxed text-lg" data-lang="contact-desc">
+                        Terbuka untuk peluang diskusi mengenai teknologi konstruksi (AI), manajemen proyek, atau bisnis kuliner. Jangan ragu untuk menghubungi saya melalui kontak di bawah ini.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <!-- Email Button - Copy to Clipboard -->
+                        <button onclick="copyEmail()" class="group flex items-center justify-center gap-3 px-8 py-4 bg-white/10 hover:bg-gold-500 rounded-full border border-white/20 hover:border-gold-500 transition-all duration-300 shadow-lg hover:shadow-gold-500/30">
+                            <i class="fas fa-envelope text-xl text-gold-500 group-hover:text-white transition-colors"></i>
+                            <span class="font-semibold text-white" data-lang="contact-btn-email">Email Saya</span>
+                        </button>
+                        
+                        <!-- WhatsApp Button - New Tab -->
+                        <a href="https://wa.me/628882439292" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center gap-3 px-8 py-4 bg-white/10 hover:bg-[#25D366] rounded-full border border-white/20 hover:border-[#25D366] transition-all duration-300 shadow-lg hover:shadow-[#25D366]/30">
+                            <i class="fab fa-whatsapp text-xl text-[#25D366] group-hover:text-white transition-colors"></i>
+                            <span class="font-semibold text-white">WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-2xl relative">
+                    <h4 class="text-2xl font-bold text-navy-900 mb-6" data-lang="contact-linkedin-title">Terhubung di LinkedIn</h4>
+                    <p class="text-slate-600 mb-8 text-sm" data-lang="contact-linkedin-desc">
+                        Mari kembangkan jaringan profesional. Saya membagikan *insights* terkait AEC, AI, dan bisnis.
+                    </p>
+                    <a href="https://www.linkedin.com/in/ibrahimacel" target="_blank" rel="noopener noreferrer" class="w-full flex justify-center items-center px-6 py-4 rounded-xl text-white bg-[#0A66C2] hover:bg-[#084e96] transition-colors shadow-md" data-lang="contact-linkedin-btn">
+                        <i class="fab fa-linkedin text-xl mr-2"></i> Profil LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 border-t border-white/10 pt-10 pb-6 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <a href="#home" class="text-xl font-bold text-white tracking-tight mb-4 inline-block">R. Ibrahim Acel<span class="text-gold-500">.</span></a>
+            <p class="text-slate-400 text-sm">
+                &copy; 2026 Raden Ibrahim Acel. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Chatbot Gemini API Integration -->
+    <button id="chatbot-toggle-btn" class="fixed bottom-6 right-6 w-14 h-14 bg-navy-900 text-white rounded-full flex items-center justify-center shadow-2xl hover:bg-gold-500 transition-colors z-50">
+        <i class="fas fa-comment-dots text-2xl"></i>
+    </button>
+    <div id="chatbot-window" class="fixed bottom-24 right-6 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 hidden flex-col overflow-hidden transition-all">
+        <div class="bg-navy-900 p-4 flex justify-between items-center text-white">
+            <div class="flex items-center gap-2"><i class="fas fa-robot text-gold-500"></i><h3 class="font-bold text-sm">AI Assistant - Raden Ibrahim</h3></div>
+            <button id="chatbot-close-btn" class="text-slate-300 hover:text-white"><i class="fas fa-times text-lg"></i></button>
+        </div>
+        <div id="chat-messages" class="h-80 overflow-y-auto p-4 flex flex-col gap-3 bg-slate-50">
+            <div class="flex items-end gap-2">
+                <div class="w-6 h-6 bg-navy-900 rounded-full flex-shrink-0 flex items-center justify-center"><i class="fas fa-robot text-white text-[10px]"></i></div>
+                <div class="bg-white p-3 rounded-2xl rounded-bl-none shadow-sm border border-slate-100 max-w-[85%]"><p class="text-sm text-slate-700" id="chatbot-greeting">Halo! Saya asisten virtual dari Raden Ibrahim. Ada yang ingin Anda ketahui tentang portofolio atau pengalamannya?</p></div>
+            </div>
+        </div>
+        <div id="typing-indicator" class="px-4 py-2 bg-slate-50 hidden items-center gap-2">
+            <span class="text-xs text-slate-500 italic" id="chatbot-typing">AI sedang mengetik...</span><div class="loader"></div>
+        </div>
+        <div class="p-3 bg-white border-t border-slate-100 flex items-center gap-2">
+            <input type="text" id="chat-input" placeholder="Tanya sesuatu..." class="flex-1 border border-slate-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-navy-900">
+            <button id="chat-send-btn" class="w-10 h-10 bg-gold-500 text-white rounded-full flex items-center justify-center hover:bg-gold-600 transition-colors shadow-sm"><i class="fas fa-paper-plane text-sm"></i></button>
+        </div>
+    </div>
+
+    <!-- Scripting -->
+    <script>
+        // Language Switcher Logic
+        const translations = {
+            id: {
+                "nav-about": "Tentang", "nav-experience": "Pengalaman", "nav-projects": "Proyek & Bisnis", "nav-skills": "Keahlian", "nav-contact": "Kontak",
+                "hero-subtitle": "STEM Engineer & Entrepreneur",
+                "hero-title": `Membangun Masa Depan Melalui AEC, AI Data, & Bisnis.`,
+                "hero-desc": `Saya <strong>Raden Ibrahim Acel Suryaningwibowo</strong>. Berpengalaman 5+ tahun sebagai AEC & AI Data Specialist, serta wirausahawan yang membangun bisnis F&B yang profitable.`,
+                "hero-btn": "View My Portfolio",
+                "about-subtitle": "Tentang Saya", "about-title": "Memadukan Keahlian Teknis dengan Strategi Bisnis.",
+                "about-p1": `AEC Subject Matter Expert & AI Data Specialist yang sedang menempuh studi Magister Manajemen Proyek. Menawarkan 5+ tahun pengalaman progresif yang menjembatani manajemen konstruksi fisik, operasi bisnis strategis, dan kecerdasan buatan. Rekam jejak terbukti sebagai Estimator dan QA untuk startup ConTech berbasis di AS, dengan spesialisasi dalam anotasi data multimodal (cetak biru 2D/3D di seluruh disiplin MEP dan Struktural) dan kurasi dataset.`,
+                "about-p2": `Mahir dalam mengevaluasi output LLM, memvalidasi logika perataan penawaran dan estimasi biaya otomatis, mendorong OKR di seluruh perusahaan, dan menerapkan alur kerja QA yang ketat untuk mempertahankan akurasi estimasi dalam deviasi yang ketat ±5-10%. Siap memanfaatkan keahlian teknik lapangan yang mendalam dan ketajaman bisnis untuk mendorong inovasi produk dalam Teknologi Konstruksi global.`,
+                "exp-subtitle": "Jejak Karir", "exp-title": "Pengalaman Profesional & Bisnis",
+                "exp-boon-date": "Nov 2025 - Present (San Fransisco, Remote)",
+                "exp-boon-1": "<strong>Data Annotation:</strong> Mengevaluasi & menganotasi denah desain 2D/3D (Arsitektur & MEP) untuk AI.",
+                "exp-boon-2": "<strong>Application QA:</strong> Bertindak sebagai *gatekeeper* utama, memverifikasi akurasi logika *bid leveling* dan estimasi biaya otomatis.",
+                "exp-boon-3": "<strong>Dataset Curation:</strong> Memproses data konstruksi tekstual & visual menjadi *dataset* LLM berkualitas tinggi.",
+                "exp-boon-4": "<strong>AI Optimization:</strong> Meningkatkan konsistensi estimasi model 15-25% dengan mempertahankan deviasi biaya dunia nyata yang ketat (±5-10%).",
+                "exp-werk-date": "Aug 2025 - Jan 2026 (Indonesia, Remote)",
+                "exp-werk-1": "<strong>Strategic Growth:</strong> Mengeksekusi strategi B2C yang efektif dengan menargetkan 1.000+ pengguna pada fase validasi awal produk.",
+                "exp-werk-2": "<strong>Business Frameworks:</strong> Mengintegrasikan OKR & KPI di 4 fungsi C-level, meningkatkan efisiensi operasional hingga ~30%.",
+                "exp-werk-3": "<strong>Partnerships:</strong> Mengamankan 5+ kemitraan kunci dengan institusi pendidikan untuk memperluas jangkauan pasar.",
+                "exp-hulu-date": "Feb 2021 - Dec 2025 (Semarang)",
+                "exp-hulu-1": "<strong>Strategic Planning:</strong> Mengembangkan visi bisnis, misi, dan strategi pertumbuhan untuk memaksimalkan profitabilitas di dua *brand* F&B.",
+                "exp-hulu-2": "<strong>Financial Management:</strong> Mengelola anggaran, memprediksi biaya, dan memastikan arus kas positif.",
+                "exp-hulu-3": "<strong>Operations & Staff:</strong> Supervisi operasional harian, rekrutmen/pelatihan staf, *inventory control*, dan riset menu produk.",
+                "exp-hulu-4": "<strong>Marketing:</strong> Menerapkan promosi & *social media marketing* untuk meningkatkan *brand awareness*.",
+                "exp-rca-date": "Dec 2022 - Aug 2025 (Semarang)",
+                "exp-rca-1": "<strong>Design & Docs:</strong> Memproduksi rencana konsep, rendering, dan dokumen detail konstruksi (Revit, AutoCAD, SketchUp, Adobe CS).",
+                "exp-rca-2": "<strong>Coordination:</strong> Meriset dan mengkoordinasikan spesifikasi material & produk.",
+                "exp-saka-date": "Sep 2022 - May 2025 (Semarang)",
+                "exp-saka-1": "<strong>Risk Management:</strong> Memantau progres proyek, mengidentifikasi isu lapangan, dan mengeksekusi mitigasi risiko.",
+                "exp-saka-2": "<strong>Optimization:</strong> Berhasil memangkas keterlambatan jadwal konstruksi keseluruhan hingga 15%.",
+                "exp-masa-date": "Apr - Jul 2022 (Surabaya)", "exp-masa-1": "Supervisi pekerja lapangan & fasilitas proyek sesuai cetak biru teknik dan regulasi K3.",
+                "exp-kmi-date": "Jun - Sep 2021 (Semarang)", "exp-kmi-1": "Mengkreasikan gambar detail 2D & 3D, denah, elevasi, dan detail struktur (AutoCAD & Inventor).",
+                "proj-subtitle": "Portofolio", "proj-title": "Sorotan Proyek & Bisnis",
+                "proj-boon-desc": "<strong>BOON Technologies</strong> | Evaluasi dan anotasi data kompleks 2D/3D. Bertindak sebagai gatekeeper kualitas LLM Konstruksi.",
+                "proj-boon-vid-desc": "Memvalidasi Bid Leveling dan Estimasi Biaya (Deviasi ±5-10%).",
+                "proj-burjo-btn": "Kunjungi @burjoempa",
+                "proj-risk-tag": "Research Project",
+                "proj-risk-desc": "Proyek: <strong>Sky House Alam Sutera Phase 2, Tangerang</strong>.",
+                "proj-gallery-title": "Galeri Karya (Desain & Sipil)",
+                "skills-subtitle": "Kompetensi Inti", "skills-title": "Keahlian & Tools",
+                "contact-subtitle": "Mari Berkolaborasi",
+                "contact-desc": "Terbuka untuk peluang diskusi mengenai teknologi konstruksi (AI), manajemen proyek, atau bisnis kuliner. Jangan ragu untuk menghubungi saya melalui kontak di bawah ini.",
+                "contact-btn-email": "Email Saya",
+                "contact-linkedin-title": "Terhubung di LinkedIn", "contact-linkedin-desc": "Mari kembangkan jaringan profesional. Saya membagikan *insights* terkait AEC, AI, dan bisnis.", "contact-linkedin-btn": '<i class="fab fa-linkedin text-xl mr-2"></i> Profil LinkedIn',
+                "chat-greeting": "Halo! Saya asisten virtual dari Raden Ibrahim. Ada yang ingin Anda ketahui tentang portofolio atau pengalamannya?",
+                "chat-placeholder": "Tanya sesuatu...",
+                "chat-typing": "AI sedang mengetik...",
+                "alert-email": "Email tersalin ke clipboard!"
+            },
+            en: {
+                "nav-about": "About", "nav-experience": "Experience", "nav-projects": "Projects & Business", "nav-skills": "Skills", "nav-contact": "Contact",
+                "hero-subtitle": "STEM Engineer & Entrepreneur",
+                "hero-title": `Building the Future Through AEC, AI Data, & Business.`,
+                "hero-desc": `I am <strong>Raden Ibrahim Acel Suryaningwibowo</strong>. 5+ years of experience as an AEC & AI Data Specialist, and an entrepreneur building profitable F&B businesses.`,
+                "hero-btn": "View My Portfolio",
+                "about-subtitle": "About Me", "about-title": "Bridging Technical Expertise with Business Strategy.",
+                "about-p1": `AEC Subject Matter Expert & AI Data Specialist currently pursuing a Master's in Project Management. Offering 5+ years of progressive experience bridging physical construction management, strategic business operations, and artificial intelligence. Proven track record as a Estimator and QA for a US-based ConTech startup, specializing in multimodal data annotation (2D/3D blueprints across MEP and Structural disciplines) and dataset curation.`,
+                "about-p2": `Adept at evaluating LLM outputs, validating automated bid leveling and cost estimation logics, driving company-wide OKRs, and implementing rigorous QA workflows to maintain estimation accuracies within a strict ±5-10% deviation. Ready to leverage deep field engineering expertise and business acumen to drive product innovation in global Construction Technology.`,
+                "exp-subtitle": "Career Path", "exp-title": "Professional & Business Experience",
+                "exp-boon-date": "Nov 2025 - Present (San Francisco, Remote)",
+                "exp-boon-1": "<strong>Data Annotation:</strong> Evaluate & annotate 2D/3D design blueprints (Architectural & MEP) for AI training.",
+                "exp-boon-2": "<strong>Application QA:</strong> Act as primary gatekeeper, verifying accuracy of automated bid leveling and cost estimation logic.",
+                "exp-boon-3": "<strong>Dataset Curation:</strong> Process textual & visual construction data into high-quality LLM datasets.",
+                "exp-boon-4": "<strong>AI Optimization:</strong> Improved model estimation consistency by 15-25% while maintaining strict real-world cost deviation (±5-10%).",
+                "exp-werk-date": "Aug 2025 - Jan 2026 (Indonesia, Remote)",
+                "exp-werk-1": "<strong>Strategic Growth:</strong> Executed effective B2C strategies targeting 1,000+ users during the early product validation phase.",
+                "exp-werk-2": "<strong>Business Frameworks:</strong> Integrated OKRs & KPIs across 4 C-level functions, boosting operational efficiency by ~30%.",
+                "exp-werk-3": "<strong>Partnerships:</strong> Secured 5+ key partnerships with educational institutions to expand market reach.",
+                "exp-hulu-date": "Feb 2021 - Dec 2025 (Semarang)",
+                "exp-hulu-1": "<strong>Strategic Planning:</strong> Developed business vision, mission, and growth strategies to maximize profitability across two F&B brands.",
+                "exp-hulu-2": "<strong>Financial Management:</strong> Managed budgets, forecasted costs, and ensured positive cash flow.",
+                "exp-hulu-3": "<strong>Operations & Staff:</strong> Supervised daily operations, staff recruitment/training, inventory control, and product menu research.",
+                "exp-hulu-4": "<strong>Marketing:</strong> Implemented promotions & social media marketing to increase brand awareness.",
+                "exp-rca-date": "Dec 2022 - Aug 2025 (Semarang)",
+                "exp-rca-1": "<strong>Design & Docs:</strong> Produced concept plans, renderings, and detailed construction documents (Revit, AutoCAD, SketchUp, Adobe CS).",
+                "exp-rca-2": "<strong>Coordination:</strong> Researched and coordinated material & product specifications.",
+                "exp-saka-date": "Sep 2022 - May 2025 (Semarang)",
+                "exp-saka-1": "<strong>Risk Management:</strong> Monitored project progress, identified field issues, and executed risk mitigation.",
+                "exp-saka-2": "<strong>Optimization:</strong> Successfully reduced overall construction schedule delays by up to 15%.",
+                "exp-masa-date": "Apr - Jul 2022 (Surabaya)", "exp-masa-1": "Supervised field workers & project facilities according to engineering blueprints and OHS regulations.",
+                "exp-kmi-date": "Jun - Sep 2021 (Semarang)", "exp-kmi-1": "Created detailed 2D & 3D drawings, floor plans, elevations, and structural details (AutoCAD & Inventor).",
+                "proj-subtitle": "Portfolio", "proj-title": "Project & Business Highlights",
+                "proj-boon-desc": "<strong>BOON Technologies</strong> | Evaluation and annotation of complex 2D/3D data. Acting as quality gatekeeper for Construction LLM.",
+                "proj-boon-vid-desc": "Validating Bid Leveling and Cost Estimating (Deviation ±5-10%).",
+                "proj-burjo-btn": "Visit @burjoempa",
+                "proj-risk-tag": "Research Project",
+                "proj-risk-desc": "Project: <strong>Sky House Alam Sutera Phase 2, Tangerang</strong>.",
+                "proj-gallery-title": "Gallery (Design & Civil)",
+                "skills-subtitle": "Core Competencies", "skills-title": "Skills & Tools",
+                "contact-subtitle": "Let's Collaborate",
+                "contact-desc": "Open to discussing opportunities in construction technology (AI), project management, or culinary business. Feel free to contact me via the links below.",
+                "contact-btn-email": "Copy My Email",
+                "contact-linkedin-title": "Connect on LinkedIn", "contact-linkedin-desc": "Let's grow our professional network. I share insights related to AEC, AI, and business.", "contact-linkedin-btn": '<i class="fab fa-linkedin text-xl mr-2"></i> LinkedIn Profile',
+                "chat-greeting": "Hello! I am Raden Ibrahim's virtual assistant. Is there anything you'd like to know about his portfolio or experience?",
+                "chat-placeholder": "Ask something...",
+                "chat-typing": "AI is typing...",
+                "alert-email": "Email copied to clipboard!"
+            }
+        };
+
+        let currentLang = 'id';
+        const langSwitchBtns = [document.getElementById('lang-switch-btn'), document.getElementById('mobile-lang-switch-btn')];
+        const langTexts = [document.getElementById('current-lang-text'), document.getElementById('mobile-current-lang-text')];
+        
+        function updateLanguage() {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                const key = el.getAttribute('data-lang');
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+            // Update UI Specifics
+            langTexts.forEach(el => el.innerText = currentLang.toUpperCase());
+            document.getElementById('chatbot-greeting').innerText = translations[currentLang]['chat-greeting'];
+            document.getElementById('chat-input').placeholder = translations[currentLang]['chat-placeholder'];
+            document.getElementById('chatbot-typing').innerText = translations[currentLang]['chat-typing'];
+            
+            // Update System Prompt language instruction
+            systemPrompt = `Anda adalah asisten AI virtual untuk website portofolio Raden Ibrahim Acel Suryaningwibowo. Jawab pertanyaan pengunjung secara profesional, ramah, dan singkat. Tolong jawab dalam bahasa ${currentLang === 'id' ? 'Indonesia' : 'Inggris'}.`;
+        }
+
+        langSwitchBtns.forEach(btn => {
+            if(btn) {
+                btn.addEventListener('click', () => {
+                    currentLang = currentLang === 'id' ? 'en' : 'id';
+                    updateLanguage();
+                });
+            }
+        });
+
+        function copyEmail() {
+            navigator.clipboard.writeText('ibrahimacel98@gmail.com').then(() => alert(translations[currentLang]['alert-email']));
+        }
+
+        const btnMenu = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        btnMenu.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+
+        const toggleBtn = document.getElementById('chatbot-toggle-btn');
+        const closeBtn = document.getElementById('chatbot-close-btn');
+        const chatWindow = document.getElementById('chatbot-window');
+        
+        function toggleChat() { chatWindow.classList.toggle('hidden'); }
+        toggleBtn.addEventListener('click', toggleChat);
+        closeBtn.addEventListener('click', toggleChat);
+
+        // GEMINI API
+        const GEMINI_API_KEY = "MASUKKAN_API_KEY_ANDA_DISINI"; 
+        
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('chat-send-btn');
+        const typingIndicator = document.getElementById('typing-indicator');
+
+        let systemPrompt = `Anda adalah asisten AI virtual untuk website portofolio Raden Ibrahim Acel Suryaningwibowo. Jawab pertanyaan pengunjung secara profesional, ramah, dan singkat. Tolong jawab dalam bahasa Indonesia.`;
+        let conversationHistory = [];
+
+        async function callGeminiAPI(userQuery) {
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+            const payload = {
+                system_instruction: { parts: { text: systemPrompt } },
+                contents: [...conversationHistory, { role: "user", parts: [{ text: userQuery }] }],
+                generationConfig: { temperature: 0.7, maxOutputTokens: 200 }
+            };
+            try {
+                const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const data = await response.json();
+                if (data.candidates && data.candidates.length > 0) {
+                    const replyText = data.candidates[0].content.parts[0].text;
+                    conversationHistory.push({ role: "user", parts: [{ text: userQuery }] });
+                    conversationHistory.push({ role: "model", parts: [{ text: replyText }] });
+                    return replyText;
+                } else { return "Maaf, tidak dapat memproses jawaban saat ini."; }
+            } catch (error) { return "Terjadi kesalahan koneksi atau API Key belum diatur."; }
+        }
+
+        function addMessageToUI(text, sender) {
+            const isUser = sender === 'user';
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `flex items-end gap-2 ${isUser ? 'justify-end' : ''} mb-3`;
+            messageDiv.innerHTML = isUser ? `<div class="bg-navy-900 text-white p-3 rounded-2xl rounded-br-none shadow-sm max-w-[85%]"><p class="text-sm">${text}</p></div>` : `<div class="w-6 h-6 bg-navy-900 rounded-full flex-shrink-0 flex items-center justify-center"><i class="fas fa-robot text-white text-[10px]"></i></div><div class="bg-white p-3 rounded-2xl rounded-bl-none shadow-sm border border-slate-100 max-w-[85%]"><p class="text-sm text-slate-700">${text}</p></div>`;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        async function handleSendMessage() {
+            const query = chatInput.value.trim();
+            if (!query) return;
+            addMessageToUI(query, 'user');
+            chatInput.value = '';
+            sendBtn.disabled = true;
+            typingIndicator.style.display = 'flex';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            if (GEMINI_API_KEY === "MASUKKAN_API_KEY_ANDA_DISINI") {
+                 setTimeout(() => {
+                    typingIndicator.style.display = 'none';
+                    addMessageToUI("API Key Gemini belum dikonfigurasi di dalam kode.", 'bot');
+                    sendBtn.disabled = false;
+                 }, 1000);
+                 return;
+            }
+
+            const reply = await callGeminiAPI(query);
+            typingIndicator.style.display = 'none';
+            addMessageToUI(reply, 'bot');
+            sendBtn.disabled = false;
+        }
+
+        sendBtn.addEventListener('click', handleSendMessage);
+        chatInput.addEventListener('keypress', function (e) { if (e.key === 'Enter') handleSendMessage(); });
+    </script>
+</body>
+</html>
